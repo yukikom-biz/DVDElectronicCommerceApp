@@ -60,9 +60,9 @@ public class OrderDAO {
                 orderItemID = rs.getInt(1);
             }
 
-            Map<Integer,ItemBean> items = bean.getItems();
-            Collection<ItemBean> list = items.values();
-            for(ItemBean item:list){
+            Map<Integer,CartBean> items = bean.getItems();
+            Collection<CartBean> list = items.values();
+            for(CartBean item:list){
                 sql = "INSERT INTO order_items VALUES(?,?,?,?,?,?,?)";
                 st = con.prepareStatement(sql);
                 st.setInt(1,orderItemID);
