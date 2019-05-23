@@ -14,10 +14,11 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/ItemClass")
-public class ItemClass extends HttpServlet {
+@WebServlet("/ItemsController")
+public class ItemsController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //todo: if the method is post, find by keyword. and show items.
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
