@@ -42,6 +42,48 @@ public class ItemDAO {
 
     }
 
+    public ItemBean findItem(int id) throws DAOException {
+        if (conn == null)
+            getConnection();
+
+
+        PreparedStatement statement = null;
+        ResultSet result = null;
+
+        try{
+            String sql = "SELECT * FROM item WHERE id=?";
+            statement = conn.prepareStatement(sql);
+            result = statement.executeQuery();
+            statement.setString(1, String.valueOf(id));
+
+            return setItemBean(id, result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DAOException("Fail to get records");
+
+        }finally {
+            try {
+                if (result != null)result.close();
+                if (statement != null)statement.close();
+                close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw new DAOException("Fail to close rescues");
+            }
+        }
+
+    }
+
+    private ItemBean setItemBean(int id, ResultSet result) throws SQLException {
+        int price = result.getInt("price");
+        String title = result.getString("title");
+        String players = result.getString("players");
+        String directors = result.getString("directors");
+        Timestamp updated = result.getTimestamp("updated");
+        Timestamp created = result.getTimestamp("created");
+        return new ItemBean(id, price, title, players, directors, updated, created);
+    }
+
     public List<ItemBean> findAll(String keyword) throws DAOException{
         return this.findAll(keyword,0);
     }
@@ -65,13 +107,7 @@ public class ItemDAO {
             ArrayList<ItemBean> itemlist = new ArrayList<>();
             while(result.next()){
                 int id = result.getInt("id");
-                int price = result.getInt("price");
-                String title = result.getString("title");
-                String players = result.getString("players");
-                String directors = result.getString("directors");
-                Timestamp updated = result.getTimestamp("updated");
-                Timestamp created = result.getTimestamp("created");
-                ItemBean itemBean = new ItemBean(id, price, title, players, directors, updated, created);
+                ItemBean itemBean = setItemBean(id, result);
                 itemlist.add(itemBean);
             }
             return itemlist;
