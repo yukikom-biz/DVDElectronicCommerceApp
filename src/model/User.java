@@ -10,6 +10,33 @@ public class User {
     private String id;
     private String name;
     private String password;
+    private String address;
+    private String postal;
+    private String phone;
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPostal(String postal) {
+        this.postal = postal;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPostal() {
+        return postal;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 
     public String getName(){
         return name;
