@@ -13,6 +13,5 @@
   </head>
   <body>
   <jsp:include page="template/nav.jsp"/>
-
   </body>
 </html>
