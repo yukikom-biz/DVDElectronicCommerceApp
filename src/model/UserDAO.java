@@ -13,7 +13,7 @@ public class UserDAO {
         Class.forName("com.mysql.jdbc.Driver");
 
         //To be amend
-        String sql = "SELECT * FROM users WHERE user = ? and password = ?";
+        String sql = "SELECT * FROM login WHERE user = ? and password = ?";
 
         Connection connection = DriverManager.getConnection(dbURL, dbUser, dbPass);
 
