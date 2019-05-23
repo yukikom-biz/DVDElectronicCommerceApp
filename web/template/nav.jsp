@@ -5,12 +5,24 @@
   Time: 15:45
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<header class="head" id="head">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <h2 class="title position-left">EventList</h2>
+        </a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">SignUp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">LogOut</a>
+            </li>
+        </ul>
+    </nav>
+</header>
