@@ -14,10 +14,10 @@ public class Item {
     public static List getList(String keyword,int page ) throws DAOException {
         ItemDAO itemDAO = new ItemDAO();
         return itemDAO.findAll(keyword,page);
-
     }
 
-    public static Item getItem(){
-
+    public static ItemBean getItem(int id) throws DAOException {
+        ItemDAO itemDAO = new ItemDAO();
+        return itemDAO.findItem(id);
     }
 }
