@@ -33,6 +33,16 @@ public class ItemBean implements Serializable {
         this.validation = validation;
     }
 
+    public ItemBean(int id, int price, String title, String players, String directors, Timestamp updated, Timestamp created) {
+        this.id = id;
+        this.price = price;
+        this.title = title;
+        this.players = players;
+        this.directors = directors;
+        this.updated = updated;
+        this.created = created;
+    }
+
     public int getId() {
         return id;
     }
