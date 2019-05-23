@@ -1,14 +1,21 @@
 DROP DATABASE IF EXISTS FifthFist;
 DROP USER IF EXISTS 'fifthfist'@'localhost';
-CREATE DATABASE FifthFist;
+CREATE DATABASE FifthFist DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 CREATE USER 'fifthfist'@'localhost' IDENTIFIED by '12345678';
 GRANT ALL ON FifthFist.* TO 'fifthfist'@'localhost';
 
 USE FifthFist;
 
+CREATE TABLE login (
+                       id SERIAL,
+                       username VARCHAR(255) NOT NULL,
+                       password CHAR(128),
+                       PRIMARY KEY (id)
+);
+
 CREATE TABLE items (
-                    item_id SERIAL,
+                    id SERIAL,
                     title VARCHAR(255) NOT NULL,
                     price INT NOT NULL,
                     players VARCHAR(255),
@@ -16,32 +23,39 @@ CREATE TABLE items (
                     description TEXT,
                     updated DATETIME,
                     created DATETIME,
-                    PRIMARY KEY (item_id)
+                    PRIMARY KEY (id)
 );
 
 CREATE TABLE orders (
-                    order_id SERIAL,
+                    id SERIAL,
                     name VARCHAR(255) NOT NULL,
                     postal CHAR(8) NOT NULL,
                     address VARCHAR(255) NOT NULL,
                     phone VARCHAR(255),
                     updated DATETIME,
                     created DATETIME,
-                    PRIMARY KEY (order_id)
+                    PRIMARY KEY (id)
 );
 
 CREATE TABLE order_items (
-                    order_items_id SERIAL,
+                    id SERIAL,
                     order_id BIGINT UNSIGNED NOT NULL,
                     item_id BIGINT UNSIGNED NOT NULL,
                     price INT UNSIGNED NOT NULL,
                     quantity INT UNSIGNED NOT NULL,
                     updated DATETIME,
                     created DATETIME,
-                    PRIMARY KEY (order_items_id),
-                    FOREIGN KEY (item_id) REFERENCES items(item_id),
-                    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+                    PRIMARY KEY (id),
+                    FOREIGN KEY (item_id) REFERENCES items(id),
+                    FOREIGN KEY (order_id) REFERENCES orders(id)
 );
+
+INSERT INTO login (username, password)
+    VALUES ("admin","password"), ("user","12345");
+
+INSERT INTO orders (id,name, postal, address, phone, updated, created)
+    VALUES (1,"UserFirst UserLast", "11111111", "1 address", "2333232222", NOW(), NOW()),
+           (2,"first1 last2", "39393939", "2 address", "222222222", NOW(), NOW());
 
 INSERT INTO items (title, price, players, directors, description, updated, created)
     VALUES ("ショーシャンクの空に",1500,"ティム・ロビンス, モーガン・フリーマン, クランシー・ブラウン","フランク・ダラボン",
@@ -119,4 +133,9 @@ INSERT INTO items (title, price, players, directors, description, updated, creat
              彼らの名は、“アベンジャーズ”。だが、意思に反して集結させられた彼らはそれぞれの心の傷に囚われ、ひとつのチームとして戦うことを拒み続ける。
              次第に明らかにされる“アベンジャーズ”の知られざる過去と苦悩…。人類史上最大の敵を前に、果たして彼らは地球を救うことができるのか？",
              NOW(),NOW());
+
+INSERT INTO order_items (order_id, item_id, price, quantity, updated, created)
+    VALUES (1,2,2323,2,NOW(),NOW()),
+           (1,4,1313,4,NOW(),NOW()),
+           (2,1,2222,3,NOW(),NOW());
 
