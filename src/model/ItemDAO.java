@@ -84,6 +84,10 @@ public class ItemDAO {
         return new ItemBean(id, price, title, players, directors, updated, created);
     }
 
+    public List<ItemBean> findAll() throws DAOException{
+     return this.findAll( "%" , 0);
+    }
+
     public List<ItemBean> findAll(String keyword) throws DAOException{
         return this.findAll(keyword,0);
     }
