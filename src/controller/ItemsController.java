@@ -16,6 +16,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static model.Item.getAllItem;
+import static model.Item.getList;
+
 @WebServlet("/ItemsController")
 public class ItemsController extends HttpServlet {
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,19 +35,19 @@ public class ItemsController extends HttpServlet {
 
         if (keyword == null){
             try {
-                itemList = item.getAllItem();
+                itemList = getAllItem();
             } catch (DAOException e) {
                 e.printStackTrace();
             }
         }else if (page == 0){
             try {
-                itemList = item.getList(keyword);
+                itemList = getList(keyword);
             } catch (DAOException e) {
                 e.printStackTrace();
             }
         }else {
             try {
-                itemList = item.getList(keyword, page);
+                itemList = getList(keyword, page);
             } catch (DAOException e) {
                 e.printStackTrace();
             }
