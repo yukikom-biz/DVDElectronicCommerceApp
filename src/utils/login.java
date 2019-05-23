@@ -16,7 +16,7 @@ import model.UserDAO;
 
 @WebServlet("/login")
 public class login extends HttpServlet {
-    public boolean isLogin(HttpServletRequest request){
+    public static boolean isLogin(HttpServletRequest request){
         HttpSession session=request.getSession(false);
         if(session!=null){
             return true;
@@ -33,7 +33,7 @@ public class login extends HttpServlet {
                 response.setContentType("text/html");
                 if (auth(name, password)) {
                     HttpSession session = request.getSession();
-                    session.setAttribute("name", name);
+                    session.setAttribute("uuid", name);
                     //Next Action
                 } else {
                     out.print("ユーザー名またはパスワードが一致しません。");
