@@ -42,17 +42,25 @@ public class ItemDAO {
 
     }
 
-    public List<ItemBean> findAll() throws DAOException{
+    public List<ItemBean> findAll(String keyword) throws DAOException{
+        return this.findAll(keyword,0);
+    }
+
+    public List<ItemBean> findAll(String keyword, int page) throws DAOException{
         if (conn == null)
             getConnection();
+
 
         PreparedStatement statement = null;
         ResultSet result = null;
 
         try{
-            String sql = "SELECT * FROM item";
+            String sql = "SELECT * FROM item WHERE title LIKE ? LIMIT 10 OFFSET ?";
+
             statement = conn.prepareStatement(sql);
             result = statement.executeQuery();
+            statement.setString(1,keyword);
+            statement.setString(2, String.valueOf(page));
 
             ArrayList<ItemBean> itemlist = new ArrayList<>();
             while(result.next()){
@@ -62,14 +70,14 @@ public class ItemDAO {
                 String players = result.getString("players");
                 String directors = result.getString("directors");
                 Timestamp updated = result.getTimestamp("updated");
-                Timestamp creared = result.getTimestamp("creared");
-                ItemBean itemBean = new ItemBean(id, price, title, players, directors, updated, creared);
+                Timestamp created = result.getTimestamp("created");
+                ItemBean itemBean = new ItemBean(id, price, title, players, directors, updated, created);
                 itemlist.add(itemBean);
             }
             return itemlist;
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new DAOException("Fail to get Records");
+            throw new DAOException("Fail to get records");
 
         }finally {
             try {
