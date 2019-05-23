@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import model.OrderDAO;
 import model.User;
 import model.UserDAO;
 import utils.login;
@@ -35,6 +36,10 @@ public class OrderController extends HttpServlet {
                     UserDAO userDAO = new UserDAO();
                     try {
                         User customer = userDAO.getUserByID((String)session.getAttribute("uuid"));
+                        //Need further amendment
+                        customer.setAddress(request.getParameter("address"));
+                        customer.setPhone(request.getParameter("phone"));
+                        customer.setPostal(request.getParameter("postal"));
                         session.setAttribute("customer",customer);
                         OrderDAO order = new OrderDAO();
                         int orderNumber = order.saveOrder(customer,cart);
