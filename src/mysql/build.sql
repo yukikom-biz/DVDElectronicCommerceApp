@@ -1,14 +1,21 @@
 DROP DATABASE IF EXISTS FifthFist;
 DROP USER IF EXISTS 'fifthfist'@'localhost';
-CREATE DATABASE FifthFist;
+CREATE DATABASE FifthFist DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 CREATE USER 'fifthfist'@'localhost' IDENTIFIED by '12345678';
 GRANT ALL ON FifthFist.* TO 'fifthfist'@'localhost';
 
 USE FifthFist;
 
+CREATE TABLE login (
+                       id SERIAL,
+                       username VARCHAR(255) NOT NULL,
+                       password CHAR(128),
+                       PRIMARY KEY (id)
+);
+
 CREATE TABLE items (
-                    item_id SERIAL,
+                    id SERIAL,
                     title VARCHAR(255) NOT NULL,
                     price INT NOT NULL,
                     players VARCHAR(255),
@@ -16,18 +23,18 @@ CREATE TABLE items (
                     description TEXT,
                     updated DATETIME,
                     created DATETIME,
-                    PRIMARY KEY (item_id)
+                    PRIMARY KEY (id)
 );
 
 CREATE TABLE orders (
-                    order_id SERIAL,
+                    id SERIAL,
                     name VARCHAR(255) NOT NULL,
                     postal CHAR(8) NOT NULL,
                     address VARCHAR(255) NOT NULL,
                     phone VARCHAR(255),
                     updated DATETIME,
                     created DATETIME,
-                    PRIMARY KEY (order_id)
+                    PRIMARY KEY (id)
 );
 
 CREATE TABLE order_items (
@@ -39,8 +46,8 @@ CREATE TABLE order_items (
                     updated DATETIME,
                     created DATETIME,
                     PRIMARY KEY (order_items_id),
-                    FOREIGN KEY (item_id) REFERENCES items(item_id),
-                    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+                    FOREIGN KEY (item_id) REFERENCES items(id),
+                    FOREIGN KEY (order_id) REFERENCES orders(id)
 );
 
 INSERT INTO items (title, price, players, directors, description, updated, created)
