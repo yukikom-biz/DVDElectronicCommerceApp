@@ -51,7 +51,8 @@ public class ItemDAO {
         ResultSet result = null;
 
         try{
-            String sql = "SELECT * FROM item WHERE id=?";
+            String sql = "SELECT * FROM item WHERE id=" + id ;
+
             statement = conn.prepareStatement(sql);
             result = statement.executeQuery();
             statement.setString(1, String.valueOf(id));
@@ -101,7 +102,8 @@ public class ItemDAO {
         ResultSet result = null;
 
         try{
-            String sql = "SELECT * FROM item WHERE title LIKE ? LIMIT 10 OFFSET ?";
+            String sql = String.format("SELECT * FROM item WHERE title LIKE %s LIMIT 10 OFFSET %s",keyword,page*10);
+
 
             statement = conn.prepareStatement(sql);
             result = statement.executeQuery();
