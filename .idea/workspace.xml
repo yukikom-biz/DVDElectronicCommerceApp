@@ -6,12 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="377ac6b3-45dc-49c5-a036-afbba4522822" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="377ac6b3-45dc-49c5-a036-afbba4522822" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utils/login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="567">
+              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -204,12 +199,12 @@
       <updated>1558576171888</updated>
       <workItem from="1558576175796" duration="1388000" />
       <workItem from="1558579562116" duration="3993000" />
-      <workItem from="1558587197416" duration="880000" />
+      <workItem from="1558587197416" duration="1140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6262000" />
+    <option name="totallyTimeSpent" value="6522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="6" />
@@ -296,8 +291,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="567">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
