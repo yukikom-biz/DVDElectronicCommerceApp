@@ -1,4 +1,5 @@
-package src.controller;
+package src.model;
+
 import java.util.List;
 
 public class OrderItem {

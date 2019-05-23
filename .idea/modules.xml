@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DVDElectronicCommerceApp.iml" filepath="$PROJECT_DIR$/DVDElectronicCommerceApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DVDElectronicCommerceApp.iml" filepath="$PROJECT_DIR$/.idea/DVDElectronicCommerceApp.iml" />
     </modules>
   </component>
 </project>

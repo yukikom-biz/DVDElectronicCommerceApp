@@ -1,4 +1,6 @@
-package src.controller;
+package src.model;
+
+import src.model.CartBean;
 
 import java.util.List;
 
