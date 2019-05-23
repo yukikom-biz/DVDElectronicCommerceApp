@@ -1,6 +1,7 @@
 package controller;
 
 import common.DAOException;
+import model.Item;
 import model.ItemBean;
 import model.ItemDAO;
 
@@ -16,13 +17,39 @@ import java.util.List;
 
 @WebServlet("/ItemsController")
 public class ItemsController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //todo: if the method is post, find by keyword. and show items.
-
-    }
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//
+//
+//    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //todo: if the method is get, show the top page.
+        String keyword = request.getParameter("keyword");
+        int page = Integer.parseInt(request.getParameter("page"));
+        Item item = new Item();
+        List itemList = null;
+
+        if (keyword == null){
+            try {
+                itemList = item.getAllItem();
+            } catch (DAOException e) {
+                e.printStackTrace();
+            }
+        }else if (page == 0){
+            try {
+                itemList = item.getList(keyword);
+            } catch (DAOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                itemList = item.getList(keyword, page);
+            } catch (DAOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        request.setAttribute("items" , itemList);
     }
 
 }
