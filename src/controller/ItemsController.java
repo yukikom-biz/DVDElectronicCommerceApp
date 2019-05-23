@@ -5,6 +5,7 @@ import model.Item;
 import model.ItemBean;
 import model.ItemDAO;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +51,8 @@ public class ItemsController extends HttpServlet {
         }
         
         request.setAttribute("items" , itemList);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/list.jsp");
+        requestDispatcher.forward(request,response);
     }
 
 }
