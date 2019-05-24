@@ -20,4 +20,9 @@ public class Item {
         ItemDAO itemDAO = new ItemDAO();
         return itemDAO.findItem(id);
     }
+
+    public static List getAllItem() throws DAOException {
+        ItemDAO itemDAO = new ItemDAO();
+        return itemDAO.findAll();
+    }
 }
