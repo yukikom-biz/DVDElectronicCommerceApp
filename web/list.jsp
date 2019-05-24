@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="model.ItemBean" %><%--
+<%@ page import="model.ItemBean" %>
+<%--
   Created by IntelliJ IDEA.
   User: yuki.komatsu
   Date: 2019-05-23
@@ -23,11 +24,11 @@
 <%
 
     List items = (List) request.getAttribute("items");
-    for (Object item : items) {
-//todo: items inctanceof ...???
-        
+    for (int i = 0; i < items.size(); i++) {
 %>
-
+<%--    We'll see what the output is here--%>
+    <p>items[i]</p>
+    <p>this is in file list.jsp</p>
 
  <% } %>
 
