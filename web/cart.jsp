@@ -15,7 +15,6 @@
   <title>Welcome shopping!</title>
 </head>
 <body>
-<jsp:include page="/menu.jsp"/><br>
 <h3>The current cart.</h3>
 
 <c:if test="${empty cart.items}">
@@ -42,6 +41,10 @@
     </c:forEach>
     <tr><td align="right" colspan="5"></td></tr>
   </table>
+  Name: <input type="text" name="name"><br />
+  Postcode: <input type="text" name="name"><br />
+  Address: <input type="text" name="name"><br />
+  Phone-number: <input type="text" name="name"><br />
 
   <form action="/mbshop/OrdersController?mode=1" method="post">
     <input type="submit" value="Order">
