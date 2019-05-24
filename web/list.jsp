@@ -12,8 +12,10 @@
 <html>
 <head>
     <title>ItemList</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="template/nav.jsp"/>
 <h2>MB Shop</h2>
 <form action="ItemsController" method="get">
     <label for="keywordSearch">Search</label>
@@ -32,13 +34,18 @@
             }
 %>
 <%--    We'll see what the output is here--%>
-    <p>タイトル: ${item.getTitle()}</p>
-    <p>価値: ${item.getPrice()}</p>
+<p>タイトル: ${item.getTitle()}</p>
+<p>価値: ${item.getPrice()}</p>
 <%--    <p>${items.get(i).getText()}</p>--%>
-    <p>プレイアー: ${item.getPlayers()}</p>
-    <br><br>
+<p>プレイアー: ${item.getPlayers()}</p>
+<form action="CartController?mode=1" method="post">
+    数量:<input type="hidden" name="id" value="${item.getId()}">
+    <select name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+    <input type="submit" value="カートに追加">
+</form>
+<br><br>
 
- <% }} %>
+<% }} %>
 
 
 </body>

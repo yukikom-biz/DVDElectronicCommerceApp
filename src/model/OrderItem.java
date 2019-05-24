@@ -1,3 +1,4 @@
+/**
 package model;
 
 import java.util.List;
@@ -18,5 +19,5 @@ public class OrderItem {
         return cartDAO.findItem(id);
     }
 }
-
+**/
 
