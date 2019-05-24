@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.ItemBean" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: yuki.komatsu
@@ -26,12 +27,15 @@
     if (items != null){
         int n = items.size();
         for (int i = 0; i < n; i++) {
+            if (items.get(i) instanceof ItemBean) {
+                request.setAttribute("item",items.get(i));
+            }
 %>
 <%--    We'll see what the output is here--%>
-    <p>タイトル: ${items.get(i).getTitle()}</p>
-    <p>価値: ${items.get(i).getPrice()}</p>
+    <p>タイトル: ${item.getTitle()}</p>
+    <p>価値: ${item.getPrice()}</p>
 <%--    <p>${items.get(i).getText()}</p>--%>
-    <p>プレイアー: ${items.get(i).getPlayers()}</p>
+    <p>プレイアー: ${item.getPlayers()}</p>
     <br><br>
 
  <% }} %>
