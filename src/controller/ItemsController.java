@@ -29,10 +29,22 @@ public class ItemsController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String keyword = request.getParameter("keyword");
-        int page = Integer.parseInt(request.getParameter("page"));
+        String mode = request.getParameter("mode");
+        String strPage = request.getParameter("page");
+        if (strPage == null){
+            strPage = "0";
+        }
+        if (mode == null){
+            mode = "0";
+        }
+        int page = Integer.parseInt(strPage);
         Item item = new Item();
         List itemList = null;
 
+        if(mode.equals("1")){
+            System.out.println("mode is "+mode);
+
+        }
         if (keyword == null){
             try {
                 itemList = getAllItem();
