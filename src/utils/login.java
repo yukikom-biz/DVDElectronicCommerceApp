@@ -1,5 +1,6 @@
 package utils;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,10 +48,11 @@ public class login extends HttpServlet {
                 if (auth(name, password)) {
                     System.out.println("Auth successfully");
                     response.setContentType("text/html;charset=UTF-8");
-                    out.print("Wrong Password");
-                    out.close();
                     HttpSession session = request.getSession();
                     session.setAttribute("uuid", name);
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request,response);
+                    out.close();
                     return;
                     //Next Action
                 } else {
