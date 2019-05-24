@@ -13,5 +13,10 @@
   </head>
   <body>
   <jsp:include page="template/nav.jsp"/>
+  <div class="container">
+    <h2>To start, press "Search"</h2>
+    <h2>Recommendation</h2>
+    <p class="text-center">Working in progress... <br>m(_   _)m</p>
+  </div>
   </body>
 </html>

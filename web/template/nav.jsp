@@ -8,7 +8,7 @@
 <header class="head" id="head">
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <h2 class="title position-left">DVD Rental Shop</h2>
+            <h2 class="title position-left">MB Shop :0</h2>
         </a>
         <ul class="nav justify-content-end">
             <li class="nav-item">

@@ -16,7 +16,7 @@
 </head>
 <body>
 <jsp:include page="template/nav.jsp"/>
-<h2>MB Shop</h2>
+<div class="container">
 <form action="ItemsController" method="get">
     <label for="keywordSearch">Search</label>
     <input type="text" name="keyword" id="keywordSearch">
@@ -41,6 +41,6 @@
 
  <% }} %>
 
-
+</div>
 </body>
 </html>
