@@ -1,9 +1,9 @@
 DROP DATABASE IF EXISTS FifthFist;
-DROP USER IF EXISTS 'fifthfist'@'localhost';
+DROP USER IF EXISTS 'fifthfist'@'%';
 CREATE DATABASE FifthFist DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
-CREATE USER 'fifthfist'@'localhost' IDENTIFIED by '12345678';
-GRANT ALL ON FifthFist.* TO 'fifthfist'@'localhost';
+CREATE USER 'fifthfist'@'%' IDENTIFIED by '12345678';
+GRANT ALL ON FifthFist.* TO 'fifthfist'@'%';
 
 USE FifthFist;
 

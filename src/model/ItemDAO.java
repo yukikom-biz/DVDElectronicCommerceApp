@@ -9,9 +9,9 @@ import java.util.List;
 public class ItemDAO {
 
     private static final String DRIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
-    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/";
-    private static final String MYSQL_USERNAME = "user_name";
-    private static final String MYSQL_PASSWORD = "password";
+    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/fifthfist";
+    private static final String MYSQL_USERNAME = "fifthfist";
+    private static final String MYSQL_PASSWORD = "12345678";
 
     private Connection conn;
     public ItemDAO() throws DAOException {
@@ -32,12 +32,12 @@ public class ItemDAO {
     private void getConnection() throws DAOException {
 
         try {
-
             Class.forName(DRIVER_CLASS_NAME);
             conn = DriverManager.getConnection(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);
 
         } catch (ClassNotFoundException | SQLException ex) {
 //            throw new DAOException("Failed to connect to database.", ex);
+            ex.printStackTrace();
         }
 
     }
@@ -94,27 +94,33 @@ public class ItemDAO {
     }
 
     public List<ItemBean> findAll(String keyword, int page) throws DAOException{
-        if (conn == null)
+        if (conn == null) {
             getConnection();
-
-
+        }
+        System.out.println("made it to findALL with params: "+keyword+","+page);
         PreparedStatement statement = null;
         ResultSet result = null;
+        ArrayList<ItemBean> itemlist = new ArrayList<>();
 
         try{
+            System.out.println("made it to try with params: "+keyword+","+page);
             String sql = "SELECT * FROM items WHERE title LIKE '%" + keyword +"%' LIMIT 10 OFFSET " + (page*10);
-
-
+            System.out.println(sql);
+            System.out.println("made it to conn");
+            System.out.println(conn);
             statement = conn.prepareStatement(sql);
             result = statement.executeQuery();
-            statement.setString(1,keyword);
-            statement.setString(2, String.valueOf(page));
+            System.out.println("made it to result");
+            System.out.println(result);
+//            statement.setString(1,keyword);
+//            statement.setString(2, String.valueOf(page));
 
-            ArrayList<ItemBean> itemlist = new ArrayList<>();
             while(result.next()){
                 int id = result.getInt("id");
                 ItemBean itemBean = setItemBean(id, result);
                 itemlist.add(itemBean);
+                System.out.println("made it to result.next()");
+                System.out.println(itemBean);
             }
             return itemlist;
         } catch (SQLException e) {
@@ -126,12 +132,12 @@ public class ItemDAO {
                 if (result != null)result.close();
                 if (statement != null)statement.close();
                 close();
+                return itemlist;
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new DAOException("Fail to close rescues");
             }
         }
-
     }
 
 
