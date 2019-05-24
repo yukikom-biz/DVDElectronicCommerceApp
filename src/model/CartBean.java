@@ -1,4 +1,4 @@
-package src.model;
+package model;
 
 import model.ItemBean;
 
@@ -21,10 +21,10 @@ public class CartBean {
         public void addCart(model.ItemBean bean, int nums){
         model.ItemBean item = (model.ItemBean)items.get(new Integer(bean.getId()));
         if(item == null){
-            bean.setQuality((nums));
+            bean.setQuantity((nums));
             items.put(new Integer((bean.getId())),bean);
         }else {
-            item.setQuality(nums + item.getQuality());
+            item.setQuantity(nums + item.getQuantity());
         }
         recalcTotal();
     }
@@ -42,7 +42,7 @@ public class CartBean {
         total = 0;
         Collection<model.ItemBean> list = items.values();
         for(model.ItemBean item : list){
-            total += item.getPrice() * item.getQuality();
+            total += item.getPrice() * item.getQuantity();
         }
     }
 }

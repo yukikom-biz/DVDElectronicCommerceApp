@@ -13,9 +13,9 @@ import java.sql.SQLException;
 import model.OrderDAO;
 import model.User;
 import model.UserDAO;
-import utils.login;
+import model.*;
 
-@WebServlet("/OrderServlet")
+@WebServlet("/OrderController")
 public class OrderController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");

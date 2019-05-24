@@ -1,5 +1,6 @@
 package utils;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +25,19 @@ public class login extends HttpServlet {
             return false;
         }
     }
-    protected void doPost(HttpServletResponse response, HttpServletRequest request){
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, java.io.IOException {
+        try {
+            PrintWriter out = response.getWriter();
+            out.println("You should send it via POST");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, java.io.IOException {
         try {
             if(request.getParameter("action").equals("login")) {
                 PrintWriter out = response.getWriter();
@@ -58,6 +71,8 @@ public class login extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+
 
     private boolean auth(String uuid, String password){
         try{

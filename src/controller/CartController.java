@@ -1,6 +1,6 @@
-package src.controller;
+package controller;
 
-import src.model.CartBean;
+import model.CartBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
