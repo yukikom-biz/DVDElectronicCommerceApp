@@ -9,7 +9,6 @@ public class OrderDAO {
     private String dbURL = "jdbc:mysql://localhost:3306/fifthfist";
     private String dbUSER = "fifthfist";
     private String dbPASS= "12345678";
-    
 
     public int saveOrder(User user, CartBean bean){
         ResultSet rs = null;
