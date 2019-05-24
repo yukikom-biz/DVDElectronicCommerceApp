@@ -22,15 +22,15 @@
 <%--todo item box--%>
 
 <%
-
     List items = (List) request.getAttribute("items");
-    for (int i = 0; i < items.size(); i++) {
+    if (items != null){
+        for (int i = 0; i < items.size(); i++) {
 %>
 <%--    We'll see what the output is here--%>
-    <p>items[i]</p>
+    <p><%items.get(i).toString();%></p>
     <p>this is in file list.jsp</p>
 
- <% } %>
+ <% }} %>
 
 
 </body>

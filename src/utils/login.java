@@ -43,27 +43,33 @@ public class login extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 String name = request.getParameter("name");
                 String password = request.getParameter("password");
-                response.setContentType("text/html");
+                response.setContentType("text/html;charset=UTF-8");
                 if (auth(name, password)) {
+                    System.out.println("Auth successfully");
+                    response.setContentType("text/html;charset=UTF-8");
+                    out.print("Wrong Password");
+                    out.close();
                     HttpSession session = request.getSession();
                     session.setAttribute("uuid", name);
+                    return;
                     //Next Action
                 } else {
-                    out.print("ユーザー名またはパスワードが一致しません。");
+                    out.print("Wrong Password");
                     //Next Action
                 }
                 out.close();
             }else if(request.getParameter("action").equals("logout")){
+                response.setContentType("text/html;charset=UTF-8");
                 if(isLogin(request)) {
                     PrintWriter out = response.getWriter();
                     HttpSession session = request.getSession();
                     session.invalidate();
-                    out.print("正常にログアウトしました");
+                    out.print("Logout successfully!");
                     out.close();
                     //Next Action
                 }else{
                     PrintWriter out = response.getWriter();
-                    out.print("ログアウトエラーです。Are you sure you have login????");
+                    out.print("Are you sure you have login????");
                     //Next Action
                 }
             }
@@ -77,22 +83,19 @@ public class login extends HttpServlet {
     private boolean auth(String uuid, String password){
         try{
             UserDAO userDAO = new UserDAO();
-            User user = userDAO.checkLogin(uuid,User.pwHash(password));
+            User user = userDAO.checkLogin(uuid,password);
             if(user==null){
+                System.out.println("False");
                 return false;
             }else{
+                System.out.println("True");
                 return true;
             }
-        }catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NoSuchProviderException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            return false;
         }
+        return false;
     }
 }
