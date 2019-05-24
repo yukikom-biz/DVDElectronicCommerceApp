@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class ItemBean implements Serializable {
     private int id, price;
-    private String title,players,directors;
+    private String title,players,directors,description;
     private Timestamp updated,created;
     private Map validation;
 
@@ -28,28 +28,31 @@ public class ItemBean implements Serializable {
         this.title = (String) RequestParams.get("title");
         this.players = (String) RequestParams.get("players");
         this.directors = (String) RequestParams.get("directors");
+        this.description = (String) RequestParams.get("description");
         this.updated = (Timestamp) RequestParams.get("updated");
         this.created = (Timestamp) RequestParams.get("created");
         this.validation = (Map<String, String>) RequestParams.get("validation");
     }
 
-    public ItemBean(int id, int price, String title, String players, String directors, Timestamp updated, Timestamp created, Map validation) {
+    public ItemBean(int id, int price, String title, String players, String directors, String description, Timestamp updated, Timestamp created, Map validation) {
         this.id = id;
         this.price = price;
         this.title = title;
         this.players = players;
         this.directors = directors;
+        this.description = description;
         this.updated = updated;
         this.created = created;
         this.validation = validation;
     }
 
-    public ItemBean(int id, int price, String title, String players, String directors, Timestamp updated, Timestamp created) {
+    public ItemBean(int id, int price, String title, String players, String directors, String description, Timestamp updated, Timestamp created) {
         this.id = id;
         this.price = price;
         this.title = title;
         this.players = players;
         this.directors = directors;
+        this.description = description;
         this.updated = updated;
         this.created = created;
     }
@@ -93,6 +96,10 @@ public class ItemBean implements Serializable {
     public void setDirectors(String directors) {
         this.directors = directors;
     }
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
 
     public Timestamp getUpdated() {
         return updated;

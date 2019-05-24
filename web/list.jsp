@@ -32,10 +32,9 @@
             }
 %>
 <%--    We'll see what the output is here--%>
-    <p>タイトル: ${item.getTitle()}</p>
+<p>タイトル: <a href="ItemsController?mode=1&keyword=${item.getTitle()}">${item.getTitle()}</a></p>
     <p>価値: ${item.getPrice()}</p>
-<%--    <p>${items.get(i).getText()}</p>--%>
-    <p>プレイアー: ${item.getPlayers()}</p>
+<%--    <p>${item.getText()}</p>--%>
     <br><br>
 
  <% }} %>
