@@ -40,5 +40,6 @@
     </orderEntry>
     <orderEntry type="library" exported="" name="mysql-connector-java-8.0.16" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="javax.servlet:jstl:1.2" level="project" />
   </component>
 </module>
