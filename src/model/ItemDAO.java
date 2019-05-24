@@ -72,7 +72,6 @@ public class ItemDAO {
                 throw new DAOException("Fail to close rescues");
             }
         }
-
     }
 
     private ItemBean setItemBean(int id, ResultSet result) throws SQLException {
@@ -80,9 +79,10 @@ public class ItemDAO {
         String title = result.getString("title");
         String players = result.getString("players");
         String directors = result.getString("directors");
+        String description = result.getString("description");
         Timestamp updated = result.getTimestamp("updated");
         Timestamp created = result.getTimestamp("created");
-        return new ItemBean(id, price, title, players, directors, updated, created);
+        return new ItemBean(id, price, title, players, directors, description, updated, created);
     }
 
     public List<ItemBean> findAll() throws DAOException{

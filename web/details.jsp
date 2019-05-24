@@ -20,21 +20,24 @@
     <input type="submit" value="Search">
 </form>
 <%--todo item box--%>
-
 <%
     List items = (List) request.getAttribute("items");
     if (items != null){
         int n = items.size();
         for (int i = 0; i < n; i++) {
+            if (items.get(i) instanceof ItemBean) {
+                request.setAttribute("item",items.get(i));
+            }
 %>
-<%--    We'll see what the output is here--%>
-    <p>タイトル: ${items.get(i).getTitle()}</p>
-    <p>価値: ${items.get(i).getPrice()}</p>
-<%--    <p>${items.get(i).getText()}</p>--%>
-    <p>プレイアー: ${items.get(i).getPlayers()}</p>
+    <%--    We'll see what the output is here--%>
+    <p>タイトル: ${item.getTitle()}</p>
+    <img src="img/${item.getId()}.jpg" alt="${item.getTitle()}">
+    <p>価値: ${item.getPrice()}</p>
+    <p>${item.getDescription()}</p>
+    <p>価値: ${item.getDirectors()}</p>
+    <p>プレイアー: ${item.getPlayers()}</p>
     <br><br>
-
- <% }} %>
+<% }} %>
 
 
 </body>

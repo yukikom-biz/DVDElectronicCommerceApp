@@ -43,9 +43,17 @@ public class ItemsController extends HttpServlet {
 
         if(mode.equals("1")){
             System.out.println("mode is "+mode);
-
+            try {
+                itemList = getList(keyword);
+            } catch (DAOException e) {
+                e.printStackTrace();
+            }
+            request.setAttribute("items" , itemList);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/details.jsp");
+            requestDispatcher.forward(request,response);
+            return;
         }
-        if (keyword == null){
+        else if (keyword == null){
             try {
                 itemList = getAllItem();
             } catch (DAOException e) {
