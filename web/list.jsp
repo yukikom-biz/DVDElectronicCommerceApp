@@ -24,11 +24,15 @@
 <%
     List items = (List) request.getAttribute("items");
     if (items != null){
-        for (int i = 0; i < items.size(); i++) {
+        int n = items.size();
+        for (int i = 0; i < n; i++) {
 %>
 <%--    We'll see what the output is here--%>
-    <p><%items.get(i).toString();%></p>
-    <p>this is in file list.jsp</p>
+    <p>タイトル: ${items.get(i).getTitle()}</p>
+    <p>価値: ${items.get(i).getPrice()}</p>
+<%--    <p>${items.get(i).getText()}</p>--%>
+    <p>プレイアー: ${items.get(i).getPlayers()}</p>
+    <br><br>
 
  <% }} %>
 
