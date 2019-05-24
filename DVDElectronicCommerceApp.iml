@@ -19,18 +19,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.20" level="application_server_libraries" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$USER_HOME$/Downloads/apache-tomcat-9.0.20/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/Downloads/apache-tomcat-9.0.20/lib" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.201" level="application_server_libraries" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="lib" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.20" level="application_server_libraries" />
   </component>
 </module>

@@ -15,7 +15,7 @@ public class OrderDAO {
         PreparedStatement st=null;
         try(Connection con = DriverManager.getConnection(dbURL,dbUSER,dbPASS)){
             int orderNumber = 0;
-            String sql = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'fifthfist' AND TABLE_NAME = 'order'";
+            String sql = "SELECT MAX(id) FROM orders;";
             st = con.prepareStatement(sql);
             rs = st.executeQuery();
             if(rs.next()){
@@ -23,7 +23,7 @@ public class OrderDAO {
             }
             rs.close();
             st.close();
-            sql = "INSERT INTO order VALUES(?,?,?,?,?,?,?)";
+            sql = "INSERT INTO orders VALUES(?,?,?,?,?,?,?)";
             st = con.prepareStatement(sql);
             st.setInt(1,orderNumber);
             st.setString(2,"");
@@ -53,7 +53,7 @@ public class OrderDAO {
 
             //Update Order
             int orderItemID = 0;
-            sql = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'fifthfist' AND TABLE_NAME = 'order'";
+            sql = "SELECT MAX(id) FROM order_items;";
             st = con.prepareStatement(sql);
             rs = st.executeQuery();
             if(rs.next()){
