@@ -19,10 +19,10 @@ public class CartBean {
     }
 
         public void addCart(model.ItemBean bean, int nums){
-        model.ItemBean item = (model.ItemBean)items.get(new Integer(bean.getCode()));
+        model.ItemBean item = (model.ItemBean)items.get(new Integer(bean.getId()));
         if(item == null){
             bean.setQuality((nums));
-            items.put(new Integer((bean.getCode())),bean);
+            items.put(new Integer((bean.getId())),bean);
         }else {
             item.setQuality(nums + item.getQuality());
         }

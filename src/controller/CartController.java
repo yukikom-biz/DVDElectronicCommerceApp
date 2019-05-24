@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
 
 public class CartController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,6 +19,7 @@ public class CartController extends HttpServlet {
             if (mode.equals("1")) {
                 HttpSession session = request.getSession(true);
                 CartBean cart = (CartBean) session.getAttribute("cart");
+                int id = Integer.parseInt(request.getParameter("id"));
                 if (cart == null) {
                     cart = new CartBean();
                     session.setAttribute("cart", cart);
