@@ -33,6 +33,7 @@
 <%--    <p>${items.get(i).getText()}</p>--%>
     <p>プレイアー: ${items.get(i).getPlayers()}</p>
     <br><br>
+
  <% }} %>
 
 
