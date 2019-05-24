@@ -50,7 +50,7 @@ public class login extends HttpServlet {
                     response.setContentType("text/html;charset=UTF-8");
                     HttpSession session = request.getSession();
                     session.setAttribute("uuid", name);
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/index2.jsp");
                     rd.forward(request,response);
                     out.close();
                     return;

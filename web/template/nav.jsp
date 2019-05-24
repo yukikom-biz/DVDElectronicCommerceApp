@@ -8,15 +8,9 @@
 <header class="head" id="head">
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <h2 class="title position-left">EventList</h2>
+            <h2 class="title position-left">DVD Rental Shop</h2>
         </a>
         <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">SignUp</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="ItemsController?keyword=%">Search</a>
             </li>

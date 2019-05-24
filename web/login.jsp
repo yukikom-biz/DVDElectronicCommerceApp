@@ -91,7 +91,7 @@
         <div class="user_card">
             <div class="d-flex justify-content-center">
                 <div class="brand_logo_container">
-                    <div class="brand_logo">dvd</div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/DVD-Video_bottom-side.jpg/220px-DVD-Video_bottom-side.jpg" class="brand_logo">
                 </div>
             </div>
             <div class="d-flex justify-content-center form_container">
@@ -122,10 +122,13 @@
             </div>
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
-                    Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+                    <a href="#" class="ml-2">Sign Up</a>
                 </div>
                 <div class="d-flex justify-content-center links">
                     <a href="#">Forgot your password?</a>
+                </div>
+                <div class="d-flex justify-content-center links">
+                    <strong>Get bootstrap today!</strong>
                 </div>
             </div>
         </div>
