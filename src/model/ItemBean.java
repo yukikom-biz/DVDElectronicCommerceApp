@@ -10,6 +10,17 @@ public class ItemBean implements Serializable {
     private Timestamp updated,created;
     private Map validation;
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    private int quantity;
+
+
     //This constructor is in accordance with textbook.
     public ItemBean(Map RequestParams) {
         this.id = (int) RequestParams.get("id");

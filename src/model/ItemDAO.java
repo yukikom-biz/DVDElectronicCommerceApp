@@ -51,7 +51,8 @@ public class ItemDAO {
         ResultSet result = null;
 
         try{
-            String sql = "SELECT * FROM item WHERE id=?";
+            String sql = "SELECT * FROM items WHERE id=" + id ;
+
             statement = conn.prepareStatement(sql);
             result = statement.executeQuery();
             statement.setString(1, String.valueOf(id));
@@ -84,6 +85,10 @@ public class ItemDAO {
         return new ItemBean(id, price, title, players, directors, updated, created);
     }
 
+    public List<ItemBean> findAll() throws DAOException{
+     return this.findAll( "%" , 0);
+    }
+
     public List<ItemBean> findAll(String keyword) throws DAOException{
         return this.findAll(keyword,0);
     }
@@ -97,7 +102,8 @@ public class ItemDAO {
         ResultSet result = null;
 
         try{
-            String sql = "SELECT * FROM item WHERE title LIKE ? LIMIT 10 OFFSET ?";
+            String sql = "SELECT * FROM items WHERE title LIKE '%" + keyword +"%' LIMIT 10 OFFSET " + (page*10);
+
 
             statement = conn.prepareStatement(sql);
             result = statement.executeQuery();

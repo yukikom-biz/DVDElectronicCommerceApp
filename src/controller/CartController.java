@@ -1,6 +1,8 @@
-package src.controller;
+package controller;
 
-import src.model.CartBean;
+import model.CartBean;
+import model.ItemBean;
+import model.ItemDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,10 +23,14 @@ public class CartController extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 CartBean cart = (CartBean) session.getAttribute("cart");
                 int id = Integer.parseInt(request.getParameter("id"));
+                int quantity = Integer.parseInt(request.getParameter("quantity"));
                 if (cart == null) {
                     cart = new CartBean();
                     session.setAttribute("cart", cart);
                 }
+                ItemDAO dao = new ItemDAO();
+                ItemBean bean = new dao.findItem(id);
+                cart.addCart(bean, quantity);
                 gotoPage(request, response, "/cart.jsp");
             } else if (mode.equals("2")) {
                 HttpSession session = request.getSession(true);
