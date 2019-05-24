@@ -32,7 +32,7 @@
     <p>価値: ${items.get(i).getPrice()}</p>
 <%--    <p>${items.get(i).getText()}</p>--%>
     <p>プレイアー: ${items.get(i).getPlayers()}</p>
-
+    <br><br>
  <% }} %>
 
 
